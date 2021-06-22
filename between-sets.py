@@ -1,28 +1,36 @@
 
 def get_total(a,b):
-    value_list = list()
-    full_list = a+b
+    a_index= a[0]
+    b_index = max(b)
+    hasil = list()
 
-    for i in range(a[1], b[0], a[1]):
-        habis_dibagi = False
-        for full in full_list:
-            print(i)
-            if i % full == 0:
-                habis_dibagi = True
-                print(i, full)
-        if habis_dibagi :
-            value_list.append(i)
-    
-    value_list.append(b[0])
-    
-    # double check
+    while a_index <= b_index:
+        count_a = 0
+        count_b = 0
+        for element in a:
+            if a_index%element == 0:
+                count_a+=1
+        if count_a == len(a):
+            for temp in b:
+                if temp%a_index == 0:
+                    count_b+=1
+            if count_b == len(b):
+                hasil.append(a_index)
+
+
+        a_index+=a[0]
+    print(hasil)
+    return len(hasil)
+         
+
+
+
+
     
 
 def main():
-    arr = [2,4]
-    arr2 = [16,32,96]
-
-    result = get_total(arr, arr2)
+    result = get_total([1], [100])
+    print(result)
 
 
 
